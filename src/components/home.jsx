@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate untuk navigasi
 import '../css/home.css';
 import BGIMG from '../assets/TITLE-SCREEN.png';
 import PlayBTN from '../assets/1-bit_UI_byBatuhanK_2.png';
@@ -10,6 +11,12 @@ function Home() {
     const menuRef = useRef(null);
     const settingBtnRef = useRef(null);
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate(); // Gunakan useNavigate untuk navigasi
+
+    // Fungsi untuk mengganti halaman menggunakan React Router
+    function changePage() {
+        navigate('/stage1');
+    }
 
     // Untuk membuat animasi pada tombol play
     function changeImage(x, e) {
@@ -48,7 +55,7 @@ function Home() {
     return (
         <div className="wrapper">
             <div className="ImageContainer">
-                <img src={BGIMG} alt="" />
+                <img src={BGIMG} alt="Background" />
             </div>
             <div className="OverlayImg" ref={settingBtnRef} onClick={toggleMenu}>
                 <img 
@@ -80,6 +87,7 @@ function Home() {
                     id="playButton" 
                     onMouseOver={(e) => changeImage(1, e)} 
                     onMouseOut={(e) => changeImage(2, e)} 
+                    onClick={changePage} // Ganti halaman saat tombol diklik
                     alt="Play Button"
                 />
             </div>
