@@ -19,6 +19,10 @@ function Stage1() {
         [1, 1, 1, 1, 1, 1, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ]);
+    // 0 = Jalan
+    // 1 = Tembok
+    // 2 = Pintu Finish
+    // 3 = Monster
     const tileSize = 50;
 
     // Load background image
